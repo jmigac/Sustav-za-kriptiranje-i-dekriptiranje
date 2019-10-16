@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem;
 
 namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
 {
@@ -50,7 +51,15 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
                 File.Create(putanjaTajniKljuc).Close();
                 File.Create(putanjaPrivatniKljuc).Close();
                 File.Create(putanjaJavniKljuc).Close();
+                string tajniKljuc, privatniKljuc, javniKljuc;
+                tajniKljuc = AES.KreirajTajniKljuc();
+
+                ZapisiUDatoteku(putanjaTajniKljuc, tajniKljuc);
             }
+        }
+        private static void ZapisiUDatoteku(string putanja, string sadrzaj)
+        {
+            File.WriteAllText(putanja, sadrzaj);
         }
     }
 }

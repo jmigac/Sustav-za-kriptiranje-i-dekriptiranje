@@ -7,3 +7,12 @@ E:\_projekti\C#-projekti\Sustav za kriptiranje i dekriptiranje\Sustav za kriptir
 E:\_projekti\C#-projekti\Sustav za kriptiranje i dekriptiranje\Sustav za kriptiranje i dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.csproj.GenerateResource.cache
 E:\_projekti\C#-projekti\Sustav za kriptiranje i dekriptiranje\Sustav za kriptiranje i dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.exe
 E:\_projekti\C#-projekti\Sustav za kriptiranje i dekriptiranje\Sustav za kriptiranje i dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.pdb
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\bin\Debug\Sustav za kriptiranje i dekriptiranje.exe.config
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\bin\Debug\Sustav za kriptiranje i dekriptiranje.exe
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\bin\Debug\Sustav za kriptiranje i dekriptiranje.pdb
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.csprojAssemblyReference.cache
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav_za_kriptiranje_i_dekriptiranje.FrmStart.resources
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav_za_kriptiranje_i_dekriptiranje.Properties.Resources.resources
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.csproj.GenerateResource.cache
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.exe
+E:\_projekti\Github\Sustav za kriptiranje i dekriptiranje\Sustav-za-kriptiranje-i-dekriptiranje\Sustav za kriptiranje i dekriptiranje\obj\Debug\Sustav za kriptiranje i dekriptiranje.pdb
