@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.txtDirektorijRada = new System.Windows.Forms.TextBox();
+            this.btnOdaberiDirektorij = new System.Windows.Forms.Button();
+            this.btnGenerirajKljuceve = new System.Windows.Forms.Button();
+            this.btnUcitajDatoteke = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -44,49 +44,54 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Odabir radnog direktorija:";
             // 
-            // textBox1
+            // txtDirektorijRada
             // 
-            this.textBox1.Location = new System.Drawing.Point(16, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 22);
-            this.textBox1.TabIndex = 1;
+            this.txtDirektorijRada.Enabled = false;
+            this.txtDirektorijRada.Location = new System.Drawing.Point(16, 34);
+            this.txtDirektorijRada.Name = "txtDirektorijRada";
+            this.txtDirektorijRada.Size = new System.Drawing.Size(234, 22);
+            this.txtDirektorijRada.TabIndex = 1;
             // 
-            // button1
+            // btnOdaberiDirektorij
             // 
-            this.button1.Location = new System.Drawing.Point(16, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(235, 31);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Odaberi direktorij";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnOdaberiDirektorij.Location = new System.Drawing.Point(16, 63);
+            this.btnOdaberiDirektorij.Name = "btnOdaberiDirektorij";
+            this.btnOdaberiDirektorij.Size = new System.Drawing.Size(235, 31);
+            this.btnOdaberiDirektorij.TabIndex = 2;
+            this.btnOdaberiDirektorij.Text = "Odaberi direktorij";
+            this.btnOdaberiDirektorij.UseVisualStyleBackColor = true;
+            this.btnOdaberiDirektorij.Click += new System.EventHandler(this.btnOdaberiDirektorij_Click);
             // 
-            // button2
+            // btnGenerirajKljuceve
             // 
-            this.button2.Location = new System.Drawing.Point(16, 100);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(235, 30);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Generiraj ključeve";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnGenerirajKljuceve.Enabled = false;
+            this.btnGenerirajKljuceve.Location = new System.Drawing.Point(16, 100);
+            this.btnGenerirajKljuceve.Name = "btnGenerirajKljuceve";
+            this.btnGenerirajKljuceve.Size = new System.Drawing.Size(235, 30);
+            this.btnGenerirajKljuceve.TabIndex = 3;
+            this.btnGenerirajKljuceve.Text = "Generiraj ključeve";
+            this.btnGenerirajKljuceve.UseVisualStyleBackColor = true;
+            this.btnGenerirajKljuceve.Click += new System.EventHandler(this.btnGenerirajKljuceve_Click);
             // 
-            // button3
+            // btnUcitajDatoteke
             // 
-            this.button3.Location = new System.Drawing.Point(16, 136);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(234, 30);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Učitaj datoteke";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnUcitajDatoteke.Enabled = false;
+            this.btnUcitajDatoteke.Location = new System.Drawing.Point(16, 136);
+            this.btnUcitajDatoteke.Name = "btnUcitajDatoteke";
+            this.btnUcitajDatoteke.Size = new System.Drawing.Size(234, 30);
+            this.btnUcitajDatoteke.TabIndex = 4;
+            this.btnUcitajDatoteke.Text = "Učitaj datoteke";
+            this.btnUcitajDatoteke.UseVisualStyleBackColor = true;
             // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 176);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnUcitajDatoteke);
+            this.Controls.Add(this.btnGenerirajKljuceve);
+            this.Controls.Add(this.btnOdaberiDirektorij);
+            this.Controls.Add(this.txtDirektorijRada);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "FrmStart";
@@ -99,10 +104,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox txtDirektorijRada;
+        private System.Windows.Forms.Button btnOdaberiDirektorij;
+        private System.Windows.Forms.Button btnGenerirajKljuceve;
+        private System.Windows.Forms.Button btnUcitajDatoteke;
     }
 }
 
