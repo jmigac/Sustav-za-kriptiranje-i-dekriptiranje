@@ -99,5 +99,15 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             RSA.PostaviPrivatniKljuc(privatniKljuc);
             RSA.PostaviJavniKljuc(javniKljuc);
         }
+        public static string UcitajSadrzajKriptiranja()
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            if(fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string putanjaDatoteke = fileDialog.FileName;
+                return putanjaDatoteke;
+            }
+            throw new Exception("Neispravna datoteka!");
+        }
     }
 }

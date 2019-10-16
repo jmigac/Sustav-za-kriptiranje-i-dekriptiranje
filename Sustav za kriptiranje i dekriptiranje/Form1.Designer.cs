@@ -36,6 +36,10 @@
             this.lblTajniKljuc = new System.Windows.Forms.Label();
             this.lblPrivatniKljuc = new System.Windows.Forms.Label();
             this.lblJavniKljuc = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtUlazniPodatak = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnOdabirUlazneDatoteke = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -114,11 +118,51 @@
             this.lblJavniKljuc.TabIndex = 5;
             this.lblJavniKljuc.Text = "Javni ključ:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(270, 113);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(97, 17);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Ulazni podaci:";
+            // 
+            // txtUlazniPodatak
+            // 
+            this.txtUlazniPodatak.Location = new System.Drawing.Point(273, 134);
+            this.txtUlazniPodatak.Multiline = true;
+            this.txtUlazniPodatak.Name = "txtUlazniPodatak";
+            this.txtUlazniPodatak.Size = new System.Drawing.Size(499, 88);
+            this.txtUlazniPodatak.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(270, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Odabir ulazne datoteke:";
+            // 
+            // btnOdabirUlazneDatoteke
+            // 
+            this.btnOdabirUlazneDatoteke.Location = new System.Drawing.Point(436, 230);
+            this.btnOdabirUlazneDatoteke.Name = "btnOdabirUlazneDatoteke";
+            this.btnOdabirUlazneDatoteke.Size = new System.Drawing.Size(181, 26);
+            this.btnOdabirUlazneDatoteke.TabIndex = 9;
+            this.btnOdabirUlazneDatoteke.Text = "Odaberi ulaznu datoteku";
+            this.btnOdabirUlazneDatoteke.UseVisualStyleBackColor = true;
+            this.btnOdabirUlazneDatoteke.Click += new System.EventHandler(this.btnOdabirUlazneDatoteke_Click);
+            // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(265, 176);
+            this.ClientSize = new System.Drawing.Size(785, 175);
+            this.Controls.Add(this.btnOdabirUlazneDatoteke);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtUlazniPodatak);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblJavniKljuc);
             this.Controls.Add(this.lblPrivatniKljuc);
             this.Controls.Add(this.lblTajniKljuc);
@@ -145,6 +189,10 @@
         private System.Windows.Forms.Label lblTajniKljuc;
         private System.Windows.Forms.Label lblPrivatniKljuc;
         private System.Windows.Forms.Label lblJavniKljuc;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtUlazniPodatak;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnOdabirUlazneDatoteke;
     }
 }
 

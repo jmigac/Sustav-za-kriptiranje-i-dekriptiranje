@@ -18,6 +18,8 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         public FrmStart()
         {
             InitializeComponent();
+            this.Height = 283;
+            this.Width = 221;
         }
         private void OsvjeziLabele()
         {
@@ -53,13 +55,35 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         {
             Datoteka.KreirajDatoteke();
             OsvjeziLabele();
-            this.Width = 680;
+            this.Width = 826;
+            this.Height = 315;
         }
 
         private void btnUcitajDatoteke_Click(object sender, EventArgs e)
         {
             Datoteka.UcitajDatoteke();
             OsvjeziLabele();
+            this.Width = 826;
+            this.Height = 315;
+        }
+
+        private void btnOdabirUlazneDatoteke_Click(object sender, EventArgs e)
+        {
+            string putanjaDatoteke = "";
+            try
+            {
+                putanjaDatoteke = Datoteka.UcitajSadrzajKriptiranja();
+                if(putanjaDatoteke.Length>0 && putanjaDatoteke != "")
+                {
+                    txtUlazniPodatak.Text = Datoteka.UcitajSadrzajDatoteke(putanjaDatoteke);
+                    txtUlazniPodatak.Enabled = false;
+                }
+            }
+            catch (Exception poruka)
+            {
+
+                MessageBox.Show(poruka.Message);
+            }
         }
     }
 }
