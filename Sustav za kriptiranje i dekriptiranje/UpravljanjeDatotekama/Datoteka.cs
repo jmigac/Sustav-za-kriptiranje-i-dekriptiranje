@@ -52,14 +52,52 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
                 File.Create(putanjaPrivatniKljuc).Close();
                 File.Create(putanjaJavniKljuc).Close();
                 string tajniKljuc, privatniKljuc, javniKljuc;
+                string[] generiraniKljucevi = new string[2];
+                generiraniKljucevi = RSA.GenerirajKljuceve();
                 tajniKljuc = AES.KreirajTajniKljuc();
-
+                privatniKljuc = generiraniKljucevi[0];
+                javniKljuc = generiraniKljucevi[1];
                 ZapisiUDatoteku(putanjaTajniKljuc, tajniKljuc);
+                ZapisiUDatoteku(putanjaPrivatniKljuc, privatniKljuc);
+                ZapisiUDatoteku(putanjaJavniKljuc, javniKljuc);
             }
         }
         private static void ZapisiUDatoteku(string putanja, string sadrzaj)
         {
             File.WriteAllText(putanja, sadrzaj);
+        }
+        public static string UcitajSadrzajDatoteke(string putanja)
+        {
+            if (File.Exists(putanja))
+            {
+                return File.ReadAllText(putanja);
+            }
+            else
+            {
+                throw new Exception("Datoteka ne postoji! Na lokaciji: "+putanja);
+            }
+        }
+        public static void UcitajDatoteke()
+        {
+            string tajniKljuc, privatniKljuc, javniKljuc;
+            try
+            {
+                tajniKljuc = UcitajSadrzajDatoteke(putanjaTajniKljuc);
+                privatniKljuc = UcitajSadrzajDatoteke(putanjaPrivatniKljuc);
+                javniKljuc = UcitajSadrzajDatoteke(putanjaJavniKljuc);
+                PostaviKljuceve(tajniKljuc, privatniKljuc, javniKljuc);
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+        }
+        private static void PostaviKljuceve(string tajniKljuc, string privatniKljuc,string javniKljuc)
+        {
+            AES.PostaviTajniKljuc(tajniKljuc);
+            RSA.PostaviPrivatniKljuc(privatniKljuc);
+            RSA.PostaviJavniKljuc(javniKljuc);
         }
     }
 }

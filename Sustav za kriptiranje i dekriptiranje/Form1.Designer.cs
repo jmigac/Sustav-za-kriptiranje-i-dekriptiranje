@@ -33,6 +33,9 @@
             this.btnOdaberiDirektorij = new System.Windows.Forms.Button();
             this.btnGenerirajKljuceve = new System.Windows.Forms.Button();
             this.btnUcitajDatoteke = new System.Windows.Forms.Button();
+            this.lblTajniKljuc = new System.Windows.Forms.Label();
+            this.lblPrivatniKljuc = new System.Windows.Forms.Label();
+            this.lblJavniKljuc = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,12 +85,43 @@
             this.btnUcitajDatoteke.TabIndex = 4;
             this.btnUcitajDatoteke.Text = "Učitaj datoteke";
             this.btnUcitajDatoteke.UseVisualStyleBackColor = true;
+            this.btnUcitajDatoteke.Click += new System.EventHandler(this.btnUcitajDatoteke_Click);
+            // 
+            // lblTajniKljuc
+            // 
+            this.lblTajniKljuc.AutoSize = true;
+            this.lblTajniKljuc.Location = new System.Drawing.Point(270, 38);
+            this.lblTajniKljuc.Name = "lblTajniKljuc";
+            this.lblTajniKljuc.Size = new System.Drawing.Size(75, 17);
+            this.lblTajniKljuc.TabIndex = 5;
+            this.lblTajniKljuc.Text = "Tajni ključ:";
+            // 
+            // lblPrivatniKljuc
+            // 
+            this.lblPrivatniKljuc.AutoSize = true;
+            this.lblPrivatniKljuc.Location = new System.Drawing.Point(270, 63);
+            this.lblPrivatniKljuc.Name = "lblPrivatniKljuc";
+            this.lblPrivatniKljuc.Size = new System.Drawing.Size(91, 17);
+            this.lblPrivatniKljuc.TabIndex = 5;
+            this.lblPrivatniKljuc.Text = "Privatni ključ:";
+            // 
+            // lblJavniKljuc
+            // 
+            this.lblJavniKljuc.AutoSize = true;
+            this.lblJavniKljuc.Location = new System.Drawing.Point(270, 89);
+            this.lblJavniKljuc.Name = "lblJavniKljuc";
+            this.lblJavniKljuc.Size = new System.Drawing.Size(77, 17);
+            this.lblJavniKljuc.TabIndex = 5;
+            this.lblJavniKljuc.Text = "Javni ključ:";
             // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(265, 176);
+            this.Controls.Add(this.lblJavniKljuc);
+            this.Controls.Add(this.lblPrivatniKljuc);
+            this.Controls.Add(this.lblTajniKljuc);
             this.Controls.Add(this.btnUcitajDatoteke);
             this.Controls.Add(this.btnGenerirajKljuceve);
             this.Controls.Add(this.btnOdaberiDirektorij);
@@ -108,6 +142,9 @@
         private System.Windows.Forms.Button btnOdaberiDirektorij;
         private System.Windows.Forms.Button btnGenerirajKljuceve;
         private System.Windows.Forms.Button btnUcitajDatoteke;
+        private System.Windows.Forms.Label lblTajniKljuc;
+        private System.Windows.Forms.Label lblPrivatniKljuc;
+        private System.Windows.Forms.Label lblJavniKljuc;
     }
 }
 

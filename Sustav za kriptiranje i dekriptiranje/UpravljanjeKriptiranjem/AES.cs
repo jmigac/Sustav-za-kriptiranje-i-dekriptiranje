@@ -25,5 +25,16 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
             tajniKljuc = Convert.ToBase64String(aesOperator.Key);
             return tajniKljuc;
         }
+        public static string DohvatiTajniKljuc()
+        {
+            return tajniKljuc;
+        }
+        public static void PostaviTajniKljuc(string kljuc)
+        {
+            if (kljuc.Length > 0)
+            {
+                tajniKljuc = kljuc;
+            }
+        }
     }
 }

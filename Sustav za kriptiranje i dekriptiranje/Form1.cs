@@ -19,7 +19,12 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         {
             InitializeComponent();
         }
-
+        private void OsvjeziLabele()
+        {
+            lblTajniKljuc.Text = "Tajni ključ: " + AES.DohvatiTajniKljuc();
+            lblPrivatniKljuc.Text = "Privatni ključ: " + RSA.DohvatiPrivatniKljuc().Substring(0,50)+"...";
+            lblJavniKljuc.Text = "Javni ključ: " + RSA.DohvatiJavniKljuc().Substring(0,50)+"...";
+        }
         private void OsvjeziFormu()
         {
             txtDirektorijRada.Text = Datoteka.DohvatiRadniDirektorij();
@@ -30,8 +35,16 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             OsvjeziFormu();
             if (Datoteka.DohvatiRadniDirektorij().Length > 0)
             {
-                btnGenerirajKljuceve.Enabled = true;
-                btnUcitajDatoteke.Enabled = true;
+                if (Datoteka.ProvjeriPostojanostDatoteka())
+                {
+                    btnUcitajDatoteke.Enabled = true;
+                    btnGenerirajKljuceve.Enabled = false;
+                }
+                else
+                {
+                    btnUcitajDatoteke.Enabled = false;
+                    btnGenerirajKljuceve.Enabled = true;
+                }
                 btnOdaberiDirektorij.Enabled = false;
             }
         }
@@ -39,6 +52,14 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         private void btnGenerirajKljuceve_Click(object sender, EventArgs e)
         {
             Datoteka.KreirajDatoteke();
+            OsvjeziLabele();
+            this.Width = 680;
+        }
+
+        private void btnUcitajDatoteke_Click(object sender, EventArgs e)
+        {
+            Datoteka.UcitajDatoteke();
+            OsvjeziLabele();
         }
     }
 }
