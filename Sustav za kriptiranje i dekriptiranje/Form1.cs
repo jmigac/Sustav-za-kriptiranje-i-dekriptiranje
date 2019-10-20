@@ -20,6 +20,8 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             InitializeComponent();
             this.Height = 283;
             this.Width = 221;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
         private void OsvjeziLabele()
         {
@@ -35,33 +37,17 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         {
             Datoteka.OdaberiRadniDirektorij();
             OsvjeziFormu();
-            if (Datoteka.DohvatiRadniDirektorij().Length > 0)
+            if (Datoteka.ProvjeriPostojanostDatoteka())
             {
-                if (Datoteka.ProvjeriPostojanostDatoteka())
-                {
-                    btnUcitajDatoteke.Enabled = true;
-                    btnGenerirajKljuceve.Enabled = false;
-                }
-                else
-                {
-                    btnUcitajDatoteke.Enabled = false;
-                    btnGenerirajKljuceve.Enabled = true;
-                }
-                btnOdaberiDirektorij.Enabled = false;
+                Datoteka.IzbrisiDatoteke();
             }
+            this.btnGenerirajKljuceve.Enabled = true;
+            this.btnOdaberiDirektorij.Enabled = false;
         }
 
         private void btnGenerirajKljuceve_Click(object sender, EventArgs e)
         {
             Datoteka.KreirajDatoteke();
-            OsvjeziLabele();
-            this.Width = 826;
-            this.Height = 315;
-        }
-
-        private void btnUcitajDatoteke_Click(object sender, EventArgs e)
-        {
-            Datoteka.UcitajDatoteke();
             OsvjeziLabele();
             this.Width = 826;
             this.Height = 315;
@@ -101,6 +87,11 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             string kriptiraniSadrzaj = Datoteka.UcitajSadrzajDatoteke(putanjaKriptiranaDatoteka);
             string dekriptiraniSadrzaj = AES.DekriptirajSadrzaj(kriptiraniSadrzaj);
             Datoteka.ZapisiUDatoteku(putanjaDatoteke, dekriptiraniSadrzaj);
+        }
+
+        private void FrmStart_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

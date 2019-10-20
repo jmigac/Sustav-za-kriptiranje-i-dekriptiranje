@@ -32,7 +32,6 @@
             this.txtDirektorijRada = new System.Windows.Forms.TextBox();
             this.btnOdaberiDirektorij = new System.Windows.Forms.Button();
             this.btnGenerirajKljuceve = new System.Windows.Forms.Button();
-            this.btnUcitajDatoteke = new System.Windows.Forms.Button();
             this.lblTajniKljuc = new System.Windows.Forms.Label();
             this.lblPrivatniKljuc = new System.Windows.Forms.Label();
             this.lblJavniKljuc = new System.Windows.Forms.Label();
@@ -82,17 +81,6 @@
             this.btnGenerirajKljuceve.Text = "Generiraj ključeve";
             this.btnGenerirajKljuceve.UseVisualStyleBackColor = true;
             this.btnGenerirajKljuceve.Click += new System.EventHandler(this.btnGenerirajKljuceve_Click);
-            // 
-            // btnUcitajDatoteke
-            // 
-            this.btnUcitajDatoteke.Enabled = false;
-            this.btnUcitajDatoteke.Location = new System.Drawing.Point(16, 136);
-            this.btnUcitajDatoteke.Name = "btnUcitajDatoteke";
-            this.btnUcitajDatoteke.Size = new System.Drawing.Size(234, 30);
-            this.btnUcitajDatoteke.TabIndex = 4;
-            this.btnUcitajDatoteke.Text = "Učitaj datoteke";
-            this.btnUcitajDatoteke.UseVisualStyleBackColor = true;
-            this.btnUcitajDatoteke.Click += new System.EventHandler(this.btnUcitajDatoteke_Click);
             // 
             // lblTajniKljuc
             // 
@@ -191,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 331);
+            this.ClientSize = new System.Drawing.Size(780, 331);
             this.Controls.Add(this.btnAesDekriptiranje);
             this.Controls.Add(this.btnAesKriptiranje);
             this.Controls.Add(this.label4);
@@ -202,7 +190,6 @@
             this.Controls.Add(this.lblJavniKljuc);
             this.Controls.Add(this.lblPrivatniKljuc);
             this.Controls.Add(this.lblTajniKljuc);
-            this.Controls.Add(this.btnUcitajDatoteke);
             this.Controls.Add(this.btnGenerirajKljuceve);
             this.Controls.Add(this.btnOdaberiDirektorij);
             this.Controls.Add(this.txtDirektorijRada);
@@ -210,6 +197,7 @@
             this.MaximizeBox = false;
             this.Name = "FrmStart";
             this.Text = "Kripto";
+            this.Load += new System.EventHandler(this.FrmStart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,7 +209,6 @@
         private System.Windows.Forms.TextBox txtDirektorijRada;
         private System.Windows.Forms.Button btnOdaberiDirektorij;
         private System.Windows.Forms.Button btnGenerirajKljuceve;
-        private System.Windows.Forms.Button btnUcitajDatoteke;
         private System.Windows.Forms.Label lblTajniKljuc;
         private System.Windows.Forms.Label lblPrivatniKljuc;
         private System.Windows.Forms.Label lblJavniKljuc;

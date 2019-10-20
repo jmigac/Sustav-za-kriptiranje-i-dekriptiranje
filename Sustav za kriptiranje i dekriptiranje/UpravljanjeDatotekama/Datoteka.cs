@@ -48,9 +48,18 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
         {
             if (!ProvjeriPostojanostDatoteka())
             {
-                File.Create(putanjaTajniKljuc).Close();
-                File.Create(putanjaPrivatniKljuc).Close();
-                File.Create(putanjaJavniKljuc).Close();
+                if (!File.Exists(putanjaTajniKljuc))
+                {
+                    File.Create(putanjaTajniKljuc).Close();
+                }
+                if (!File.Exists(putanjaPrivatniKljuc))
+                {
+                    File.Create(putanjaPrivatniKljuc).Close();
+                }
+                if (!File.Exists(putanjaJavniKljuc))
+                {
+                    File.Create(putanjaJavniKljuc).Close();
+                }
                 string tajniKljuc, privatniKljuc, javniKljuc;
                 string[] generiraniKljucevi = new string[2];
                 generiraniKljucevi = RSA.GenerirajKljuceve();
@@ -109,7 +118,6 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             }
             throw new Exception("Neispravna datoteka!");
         }
-
         public static string KreirajAesKripitraniSadrzajDatoteku()
         {
             string putanjaDatoteke = radniDirektorij + @"/kriptirani_sadrzaj.txt";
@@ -127,6 +135,34 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
                 File.Create(putanjaDatoteke).Close();
             }
             return putanjaDatoteke;
+        }
+        public static void IzbrisiDatoteke()
+        {
+            string tajniKljuc = radniDirektorij + @"/tajni_kljuc.txt";
+            string privatniKljuc = radniDirektorij + @"/privatni_kljuc.txt";
+            string javniKljuc = radniDirektorij + @"/javni_kljuc.txt";
+            string kriptiraniSadrzajAes = radniDirektorij + @"/kriptirani_sadrzaj.txt";
+            string dekriptiraniSadrzajAes = radniDirektorij + @"/dekriptirani_sadrzaj.txt";
+            if (File.Exists(tajniKljuc))
+            {
+                File.Delete(tajniKljuc);
+            }
+            if (File.Exists(privatniKljuc))
+            {
+                File.Delete(privatniKljuc);
+            }
+            if (File.Exists(javniKljuc))
+            {
+                File.Delete(javniKljuc);
+            }
+            if (File.Exists(kriptiraniSadrzajAes))
+            {
+                File.Delete(kriptiraniSadrzajAes);
+            }
+            if (File.Exists(dekriptiraniSadrzajAes))
+            {
+                File.Delete(dekriptiraniSadrzajAes);
+            }
         }
     }
 }
