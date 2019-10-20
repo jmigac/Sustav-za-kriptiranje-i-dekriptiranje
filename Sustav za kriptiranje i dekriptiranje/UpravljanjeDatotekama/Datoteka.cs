@@ -143,6 +143,8 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             string javniKljuc = radniDirektorij + @"/javni_kljuc.txt";
             string kriptiraniSadrzajAes = radniDirektorij + @"/kriptirani_sadrzaj.txt";
             string dekriptiraniSadrzajAes = radniDirektorij + @"/dekriptirani_sadrzaj.txt";
+            string kriptiraniSadrzajRsa = radniDirektorij + @"/RSAkriptirani_sadrzaj.txt";
+            string dekriptiraniSadrzajRsa = radniDirektorij + @"/RSAdekriptirani_sadrzaj.txt";
             if (File.Exists(tajniKljuc))
             {
                 File.Delete(tajniKljuc);
@@ -163,6 +165,58 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             {
                 File.Delete(dekriptiraniSadrzajAes);
             }
+            if (File.Exists(kriptiraniSadrzajRsa))
+            {
+                File.Delete(kriptiraniSadrzajRsa);
+            }
+            if (File.Exists(dekriptiraniSadrzajRsa))
+            {
+                File.Delete(dekriptiraniSadrzajRsa);
+            }
+        }
+        public static string KreirajRsaDatotekuZaKriptiranje()
+        {
+            string putanjaDatoteke = radniDirektorij + @"/RSAkriptirani_sadrzaj.txt";
+            if (!File.Exists(putanjaDatoteke))
+            {
+                File.Create(putanjaDatoteke).Close();
+            }
+            return putanjaDatoteke;
+        }
+        public static string KreirajRsaDatotekuZaDekriptiranje()
+        {
+            string putanjaDatoteke = radniDirektorij + @"\RSAdekriptirani_sadrzaj.txt";
+            if (!File.Exists(putanjaDatoteke))
+            {
+                File.Create(putanjaDatoteke).Close();
+            }
+            return putanjaDatoteke;
+        }
+        public static byte[] UcitajOdredenuDatoteku(string putanja)
+        {
+            byte[] sadrzajDatoteke;
+            if (File.Exists(putanja))
+            {
+                sadrzajDatoteke = Encoding.UTF8.GetBytes(File.ReadAllText(putanja));
+            }
+            else
+            {
+                throw new Exception("Dokument ne postoji!");
+            }
+            return sadrzajDatoteke;
+        }
+        public static string UcitajOdredenuDatotekuKaoString(string putanja)
+        {
+            string sadrzajDatoteke = "";
+            if (File.Exists(putanja))
+            {
+                sadrzajDatoteke = File.ReadAllText(putanja);
+            }
+            else
+            {
+                throw new Exception("Datoteka ne postoji!");
+            }
+            return sadrzajDatoteke;
         }
     }
 }

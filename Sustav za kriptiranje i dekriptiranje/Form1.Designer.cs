@@ -42,6 +42,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.btnAesKriptiranje = new System.Windows.Forms.Button();
             this.btnAesDekriptiranje = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAsimetricnoKriptiranje = new System.Windows.Forms.Button();
+            this.btnAsimetricnoDekriptiranje = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -175,13 +178,46 @@
             this.btnAesDekriptiranje.UseVisualStyleBackColor = true;
             this.btnAesDekriptiranje.Click += new System.EventHandler(this.btnAesDekriptiranje_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(270, 331);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(276, 17);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Asimetrično kriptiranje / dekriptiranje";
+            // 
+            // btnAsimetricnoKriptiranje
+            // 
+            this.btnAsimetricnoKriptiranje.Location = new System.Drawing.Point(273, 358);
+            this.btnAsimetricnoKriptiranje.Name = "btnAsimetricnoKriptiranje";
+            this.btnAsimetricnoKriptiranje.Size = new System.Drawing.Size(75, 33);
+            this.btnAsimetricnoKriptiranje.TabIndex = 11;
+            this.btnAsimetricnoKriptiranje.Text = "Kriptiraj";
+            this.btnAsimetricnoKriptiranje.UseVisualStyleBackColor = true;
+            this.btnAsimetricnoKriptiranje.Click += new System.EventHandler(this.btnAsimetricnoKriptiranje_Click);
+            // 
+            // btnAsimetricnoDekriptiranje
+            // 
+            this.btnAsimetricnoDekriptiranje.Location = new System.Drawing.Point(355, 358);
+            this.btnAsimetricnoDekriptiranje.Name = "btnAsimetricnoDekriptiranje";
+            this.btnAsimetricnoDekriptiranje.Size = new System.Drawing.Size(88, 33);
+            this.btnAsimetricnoDekriptiranje.TabIndex = 11;
+            this.btnAsimetricnoDekriptiranje.Text = "Dekriptiraj";
+            this.btnAsimetricnoDekriptiranje.UseVisualStyleBackColor = true;
+            this.btnAsimetricnoDekriptiranje.Click += new System.EventHandler(this.btnAsimetricnoDekriptiranje_Click);
+            // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 331);
+            this.ClientSize = new System.Drawing.Size(780, 403);
+            this.Controls.Add(this.btnAsimetricnoDekriptiranje);
+            this.Controls.Add(this.btnAsimetricnoKriptiranje);
             this.Controls.Add(this.btnAesDekriptiranje);
             this.Controls.Add(this.btnAesKriptiranje);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnOdabirUlazneDatoteke);
             this.Controls.Add(this.label3);
@@ -219,6 +255,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAesKriptiranje;
         private System.Windows.Forms.Button btnAesDekriptiranje;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnAsimetricnoKriptiranje;
+        private System.Windows.Forms.Button btnAsimetricnoDekriptiranje;
     }
 }
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama;
 
 namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
 {
@@ -46,6 +47,17 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
             {
                 javniKljuc = kljuc;
             }
+        }
+
+        public static string Kriptiraj(byte[] sadrzajKriptiranja)
+        {
+            byte[] kriptiraniSadrzaj = rsaOperator.Encrypt(sadrzajKriptiranja, false);
+            return Convert.ToBase64String(kriptiraniSadrzaj);
+        }
+        public static string Dekriptiraj(byte[] tekst)
+        {
+            byte[] dekriptiranTekst = rsaOperator.Decrypt(tekst, false);
+            return Encoding.UTF8.GetString(dekriptiranTekst);
         }
     }
 }
