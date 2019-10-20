@@ -62,7 +62,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
                 ZapisiUDatoteku(putanjaJavniKljuc, javniKljuc);
             }
         }
-        private static void ZapisiUDatoteku(string putanja, string sadrzaj)
+        public static void ZapisiUDatoteku(string putanja, string sadrzaj)
         {
             File.WriteAllText(putanja, sadrzaj);
         }
@@ -108,6 +108,13 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
                 return putanjaDatoteke;
             }
             throw new Exception("Neispravna datoteka!");
+        }
+
+        public static string KreirajAesKripitraniSadrzajDatoteku()
+        {
+            string putanjaDatoteke = radniDirektorij + @"/kriptirani_sadrzaj.txt";
+            File.Create(putanjaDatoteke).Close();
+            return putanjaDatoteke;
         }
     }
 }

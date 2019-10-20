@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.IO;
 
 namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
 {
@@ -35,6 +36,24 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
             {
                 tajniKljuc = kljuc;
             }
+        }
+
+        public static byte[] KriptirajSadrzaj(string tekst)
+        {
+            byte[] kriptiraniSadrzaj;
+            ICryptoTransform objKriptiranja = aesOperator.CreateEncryptor(aesOperator.Key, aesOperator.IV);
+            using(MemoryStream memorijskoStrujanje = new MemoryStream())
+            {
+                using(CryptoStream strujanjeKriptiranja = new CryptoStream(memorijskoStrujanje, objKriptiranja, CryptoStreamMode.Write))
+                {
+                    using(StreamWriter pisacStrujanja = new StreamWriter(strujanjeKriptiranja))
+                    {
+                        pisacStrujanja.Write(tekst);
+                    }
+                    kriptiraniSadrzaj = memorijskoStrujanje.ToArray();
+                }
+            }
+            return kriptiraniSadrzaj;
         }
     }
 }

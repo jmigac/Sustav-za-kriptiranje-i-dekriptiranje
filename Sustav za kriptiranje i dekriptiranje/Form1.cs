@@ -85,5 +85,13 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
                 MessageBox.Show(poruka.Message);
             }
         }
+
+        private void btnAesKriptiranje_Click(object sender, EventArgs e)
+        {
+            string putanjaDatoteke = Datoteka.KreirajAesKripitraniSadrzajDatoteku();
+            byte[] kriptiranSadrzaj = AES.KriptirajSadrzaj(txtUlazniPodatak.Text);
+            string sadrzaj = Convert.ToBase64String(kriptiranSadrzaj);
+            Datoteka.ZapisiUDatoteku(putanjaDatoteke, sadrzaj);
+        }
     }
 }
