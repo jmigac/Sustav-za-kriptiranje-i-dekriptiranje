@@ -113,7 +113,19 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
         public static string KreirajAesKripitraniSadrzajDatoteku()
         {
             string putanjaDatoteke = radniDirektorij + @"/kriptirani_sadrzaj.txt";
-            File.Create(putanjaDatoteke).Close();
+            if (!File.Exists(putanjaDatoteke))
+            {
+                File.Create(putanjaDatoteke).Close();
+            }
+            return putanjaDatoteke;
+        }
+        public static string KreirajAesDekriptiraniSadrzajDatoteku()
+        {
+            string putanjaDatoteke = radniDirektorij + @"/dekriptirani_sadrzaj.txt";
+            if (!File.Exists(putanjaDatoteke))
+            {
+                File.Create(putanjaDatoteke).Close();
+            }
             return putanjaDatoteke;
         }
     }

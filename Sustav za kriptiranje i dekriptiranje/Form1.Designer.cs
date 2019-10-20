@@ -181,10 +181,11 @@
             // 
             this.btnAesDekriptiranje.Location = new System.Drawing.Point(355, 286);
             this.btnAesDekriptiranje.Name = "btnAesDekriptiranje";
-            this.btnAesDekriptiranje.Size = new System.Drawing.Size(81, 33);
+            this.btnAesDekriptiranje.Size = new System.Drawing.Size(88, 33);
             this.btnAesDekriptiranje.TabIndex = 11;
             this.btnAesDekriptiranje.Text = "Dekriptiraj";
             this.btnAesDekriptiranje.UseVisualStyleBackColor = true;
+            this.btnAesDekriptiranje.Click += new System.EventHandler(this.btnAesDekriptiranje_Click);
             // 
             // FrmStart
             // 

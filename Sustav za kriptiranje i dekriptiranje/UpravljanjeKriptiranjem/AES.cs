@@ -13,7 +13,6 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
         private static Aes aesOperator;
         private static string tajniKljuc;
 
-
         public static string KreirajTajniKljuc()
         {
             aesOperator = Aes.Create();
@@ -54,6 +53,23 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
                 }
             }
             return kriptiraniSadrzaj;
+        }
+        public static string DekriptirajSadrzaj(string tekst)
+        {
+            byte[] kriptiraniTekst = Convert.FromBase64String(tekst);
+            string dekriptiraniTekst = "";
+            ICryptoTransform objDekriptor = aesOperator.CreateDecryptor(aesOperator.Key, aesOperator.IV);
+            using(MemoryStream strujanjeMemorije = new MemoryStream(kriptiraniTekst))
+            {
+                using(CryptoStream strujanjeDekriptiranja = new CryptoStream(strujanjeMemorije, objDekriptor, CryptoStreamMode.Read))
+                {
+                    using(StreamReader citacStrujanja = new StreamReader(strujanjeDekriptiranja))
+                    {
+                        dekriptiraniTekst = citacStrujanja.ReadToEnd();
+                    }
+                }
+            }
+            return dekriptiraniTekst;
         }
     }
 }

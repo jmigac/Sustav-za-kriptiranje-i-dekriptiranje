@@ -93,5 +93,14 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             string sadrzaj = Convert.ToBase64String(kriptiranSadrzaj);
             Datoteka.ZapisiUDatoteku(putanjaDatoteke, sadrzaj);
         }
+
+        private void btnAesDekriptiranje_Click(object sender, EventArgs e)
+        {
+            string putanjaDatoteke = Datoteka.KreirajAesDekriptiraniSadrzajDatoteku();
+            string putanjaKriptiranaDatoteka = Datoteka.DohvatiRadniDirektorij() + @"/kriptirani_sadrzaj.txt";
+            string kriptiraniSadrzaj = Datoteka.UcitajSadrzajDatoteke(putanjaKriptiranaDatoteka);
+            string dekriptiraniSadrzaj = AES.DekriptirajSadrzaj(kriptiraniSadrzaj);
+            Datoteka.ZapisiUDatoteku(putanjaDatoteke, dekriptiraniSadrzaj);
+        }
     }
 }
