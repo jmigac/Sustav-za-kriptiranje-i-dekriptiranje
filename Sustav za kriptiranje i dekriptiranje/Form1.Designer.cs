@@ -223,6 +223,7 @@
             // 
             // btnDigitalnoPotpisivanje
             // 
+            this.btnDigitalnoPotpisivanje.Enabled = false;
             this.btnDigitalnoPotpisivanje.Location = new System.Drawing.Point(18, 171);
             this.btnDigitalnoPotpisivanje.Name = "btnDigitalnoPotpisivanje";
             this.btnDigitalnoPotpisivanje.Size = new System.Drawing.Size(233, 28);

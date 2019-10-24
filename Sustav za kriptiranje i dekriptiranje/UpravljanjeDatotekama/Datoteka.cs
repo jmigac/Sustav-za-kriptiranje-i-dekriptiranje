@@ -199,13 +199,13 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
         public static byte[] UcitajOdredenuDatoteku(string putanja)
         {
             byte[] sadrzajDatoteke;
-            if (File.Exists(putanja))
+            if (File.Exists(putanja) && (Path.GetExtension(putanja) == ".txt" || Path.GetExtension(putanja) == ".TXT"))
             {
                 sadrzajDatoteke = Encoding.UTF8.GetBytes(File.ReadAllText(putanja));
             }
             else
             {
-                throw new Exception("Dokument ne postoji!");
+                throw new Exception("Dokument ne postoji ili nije .txt formata!");
             }
             return sadrzajDatoteke;
         }
@@ -248,6 +248,23 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             string putanjaDatoteke = "";
             string radniDirektorij = DohvatiRadniDirektorij();
             putanjaDatoteke = radniDirektorij + @"/sazetak.txt";
+            if (File.Exists(putanjaDatoteke))
+            {
+                File.Delete(putanjaDatoteke);
+                File.Create(putanjaDatoteke).Close();
+            }
+            else
+            {
+                File.Create(putanjaDatoteke).Close();
+            }
+            return putanjaDatoteke;
+        }
+
+        public static string KreirajDatotekuDigitalnogPotpisa()
+        {
+            string putanjaDatoteke = "";
+            string radniDirektorij = DohvatiRadniDirektorij();
+            putanjaDatoteke = radniDirektorij + @"/digitalni_potpis.txt";
             if (File.Exists(putanjaDatoteke))
             {
                 File.Delete(putanjaDatoteke);

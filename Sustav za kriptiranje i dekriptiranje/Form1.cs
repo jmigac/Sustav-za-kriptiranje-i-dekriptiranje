@@ -65,6 +65,8 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             this.Width = 798;
             this.Height = 450;
             this.btnIzracunajSazetak.Enabled = true;
+            this.btnDigitalnoPotpisivanje.Enabled = true;
+            this.btnGenerirajKljuceve.Enabled = false;
         }
 
         private void btnOdabirUlazneDatoteke_Click(object sender, EventArgs e)
@@ -134,6 +136,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         private void btnIzracunajSazetak_Click(object sender, EventArgs e)
         {
             string putanjaDatoteke = "";
+            byte[] sadrzajDatoteke;
             try
             {
                 putanjaDatoteke = Datoteka.UcitajDatotekuDigitalnogPotpisivanje();
@@ -143,17 +146,37 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
 
                 MessageBox.Show(poruka.Message);
             }
-            byte[] sadrzajDatoteke = Datoteka.UcitajOdredenuDatoteku(putanjaDatoteke);
-            byte[] sazetakDatoteke = RSA.IzracunajSazetakDatoteke(sadrzajDatoteke);
-            string putanjaSazetka = Datoteka.KreirajDatotekuSazetka();
-            string izracunatSazetak = Convert.ToBase64String(sazetakDatoteke);
-            Datoteka.ZapisiUDatoteku(putanjaSazetka, izracunatSazetak);
-            txtUlazniPodatak.Text = izracunatSazetak;
+            try
+            {
+                sadrzajDatoteke = Datoteka.UcitajOdredenuDatoteku(putanjaDatoteke);
+                byte[] sazetakDatoteke = RSA.IzracunajSazetakDatoteke(sadrzajDatoteke);
+                string putanjaSazetka = Datoteka.KreirajDatotekuSazetka();
+                string izracunatSazetak = Convert.ToBase64String(sazetakDatoteke);
+                Datoteka.ZapisiUDatoteku(putanjaSazetka, izracunatSazetak);
+                txtUlazniPodatak.Text = izracunatSazetak;
+            }
+            catch (Exception poruka)
+            {
+
+                MessageBox.Show(poruka.Message);
+            }
+
         }
 
         private void btnDigitalnoPotpisivanje_Click(object sender, EventArgs e)
         {
-
+            string putanjaDatotekeDigitalnogPotpisa = Datoteka.KreirajDatotekuDigitalnogPotpisa();
+            string datotekaPotpisivanja = "";
+            OpenFileDialog ucitanaDatoteka = new OpenFileDialog();
+            if(ucitanaDatoteka.ShowDialog() == DialogResult.OK)
+            {
+                datotekaPotpisivanja = ucitanaDatoteka.FileName;
+            }
+            byte[] sadrzajUcitaneDatoteke = Datoteka.UcitajOdredenuDatoteku(datotekaPotpisivanja);
+            byte[] sadrzajDigitalnogPotpisa = RSA.DigitalnoPotpisi(sadrzajUcitaneDatoteke);
+            string strSadrzajDigitalnogPotpisa = Convert.ToBase64String(sadrzajDigitalnogPotpisa);
+            Datoteka.ZapisiUDatoteku(putanjaDatotekeDigitalnogPotpisa, strSadrzajDigitalnogPotpisa);
+            txtUlazniPodatak.Text = strSadrzajDigitalnogPotpisa;
         }
     }
 }
