@@ -45,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnAsimetricnoKriptiranje = new System.Windows.Forms.Button();
             this.btnAsimetricnoDekriptiranje = new System.Windows.Forms.Button();
+            this.btnIzracunajSazetak = new System.Windows.Forms.Button();
             this.btnDigitalnoPotpisivanje = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -209,14 +210,24 @@
             this.btnAsimetricnoDekriptiranje.UseVisualStyleBackColor = true;
             this.btnAsimetricnoDekriptiranje.Click += new System.EventHandler(this.btnAsimetricnoDekriptiranje_Click);
             // 
+            // btnIzracunajSazetak
+            // 
+            this.btnIzracunajSazetak.Enabled = false;
+            this.btnIzracunajSazetak.Location = new System.Drawing.Point(17, 136);
+            this.btnIzracunajSazetak.Name = "btnIzracunajSazetak";
+            this.btnIzracunajSazetak.Size = new System.Drawing.Size(234, 29);
+            this.btnIzracunajSazetak.TabIndex = 12;
+            this.btnIzracunajSazetak.Text = "Izracunaj sažetak";
+            this.btnIzracunajSazetak.UseVisualStyleBackColor = true;
+            this.btnIzracunajSazetak.Click += new System.EventHandler(this.btnIzracunajSazetak_Click);
+            // 
             // btnDigitalnoPotpisivanje
             // 
-            this.btnDigitalnoPotpisivanje.Enabled = false;
-            this.btnDigitalnoPotpisivanje.Location = new System.Drawing.Point(17, 136);
+            this.btnDigitalnoPotpisivanje.Location = new System.Drawing.Point(18, 171);
             this.btnDigitalnoPotpisivanje.Name = "btnDigitalnoPotpisivanje";
-            this.btnDigitalnoPotpisivanje.Size = new System.Drawing.Size(234, 29);
-            this.btnDigitalnoPotpisivanje.TabIndex = 12;
-            this.btnDigitalnoPotpisivanje.Text = "Digitalno potpisi datoteku";
+            this.btnDigitalnoPotpisivanje.Size = new System.Drawing.Size(233, 28);
+            this.btnDigitalnoPotpisivanje.TabIndex = 13;
+            this.btnDigitalnoPotpisivanje.Text = "Digitalno potpiši datoteku";
             this.btnDigitalnoPotpisivanje.UseVisualStyleBackColor = true;
             this.btnDigitalnoPotpisivanje.Click += new System.EventHandler(this.btnDigitalnoPotpisivanje_Click);
             // 
@@ -226,6 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 403);
             this.Controls.Add(this.btnDigitalnoPotpisivanje);
+            this.Controls.Add(this.btnIzracunajSazetak);
             this.Controls.Add(this.btnAsimetricnoDekriptiranje);
             this.Controls.Add(this.btnAsimetricnoKriptiranje);
             this.Controls.Add(this.btnAesDekriptiranje);
@@ -271,6 +283,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAsimetricnoKriptiranje;
         private System.Windows.Forms.Button btnAsimetricnoDekriptiranje;
+        private System.Windows.Forms.Button btnIzracunajSazetak;
         private System.Windows.Forms.Button btnDigitalnoPotpisivanje;
     }
 }

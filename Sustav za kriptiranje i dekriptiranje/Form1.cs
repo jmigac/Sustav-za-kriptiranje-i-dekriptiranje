@@ -64,7 +64,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             OsvjeziLabele();
             this.Width = 798;
             this.Height = 450;
-            this.btnDigitalnoPotpisivanje.Enabled = true;
+            this.btnIzracunajSazetak.Enabled = true;
         }
 
         private void btnOdabirUlazneDatoteke_Click(object sender, EventArgs e)
@@ -131,7 +131,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             PostaviTekst(dekriptiraniSadrzaj);
         }
 
-        private void btnDigitalnoPotpisivanje_Click(object sender, EventArgs e)
+        private void btnIzracunajSazetak_Click(object sender, EventArgs e)
         {
             string putanjaDatoteke = "";
             try
@@ -146,7 +146,14 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             byte[] sadrzajDatoteke = Datoteka.UcitajOdredenuDatoteku(putanjaDatoteke);
             byte[] sazetakDatoteke = RSA.IzracunajSazetakDatoteke(sadrzajDatoteke);
             string putanjaSazetka = Datoteka.KreirajDatotekuSazetka();
-            Datoteka.ZapisiUDatoteku(putanjaSazetka, Convert.ToBase64String(sazetakDatoteke));
+            string izracunatSazetak = Convert.ToBase64String(sazetakDatoteke);
+            Datoteka.ZapisiUDatoteku(putanjaSazetka, izracunatSazetak);
+            txtUlazniPodatak.Text = izracunatSazetak;
+        }
+
+        private void btnDigitalnoPotpisivanje_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

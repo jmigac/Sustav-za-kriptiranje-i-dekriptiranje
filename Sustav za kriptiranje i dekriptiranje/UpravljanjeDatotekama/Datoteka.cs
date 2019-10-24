@@ -251,11 +251,11 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             if (File.Exists(putanjaDatoteke))
             {
                 File.Delete(putanjaDatoteke);
-                File.Create(putanjaDatoteke);
+                File.Create(putanjaDatoteke).Close();
             }
             else
             {
-                File.Create(putanjaDatoteke);
+                File.Create(putanjaDatoteke).Close();
             }
             return putanjaDatoteke;
         }
