@@ -39,14 +39,22 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
         }
         private void btnOdaberiDirektorij_Click(object sender, EventArgs e)
         {
-            Datoteka.OdaberiRadniDirektorij();
-            OsvjeziFormu();
-            if (Datoteka.ProvjeriPostojanostDatoteka())
+            try
             {
-                Datoteka.IzbrisiDatoteke();
+                Datoteka.OdaberiRadniDirektorij();
+                OsvjeziFormu();
+                if (Datoteka.ProvjeriPostojanostDatoteka())
+                {
+                    Datoteka.IzbrisiDatoteke();
+                }
+                this.btnGenerirajKljuceve.Enabled = true;
+                this.btnOdaberiDirektorij.Enabled = false;
             }
-            this.btnGenerirajKljuceve.Enabled = true;
-            this.btnOdaberiDirektorij.Enabled = false;
+            catch (Exception poruka)
+            {
+
+                MessageBox.Show(poruka.Message);
+            }
         }
 
         private void btnGenerirajKljuceve_Click(object sender, EventArgs e)

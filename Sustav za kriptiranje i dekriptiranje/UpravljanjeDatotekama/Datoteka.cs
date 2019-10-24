@@ -25,6 +25,10 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
                 putanjaPrivatniKljuc = radniDirektorij + @"/privatni_kljuc.txt";
                 putanjaJavniKljuc = radniDirektorij + @"/javni_kljuc.txt";
             }
+            else if (odabirDirektorij.SelectedPath.Length <=0 || radniDirektorij.Length <= 0)
+            {
+                throw new Exception("Niste odabali radni direktorij!");
+            }
         }
         public static string DohvatiRadniDirektorij()
         {
