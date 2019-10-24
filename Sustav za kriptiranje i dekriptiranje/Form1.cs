@@ -49,6 +49,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
                 }
                 this.btnGenerirajKljuceve.Enabled = true;
                 this.btnOdaberiDirektorij.Enabled = false;
+                
             }
             catch (Exception poruka)
             {
@@ -63,6 +64,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             OsvjeziLabele();
             this.Width = 798;
             this.Height = 450;
+            this.btnDigitalnoPotpisivanje.Enabled = true;
         }
 
         private void btnOdabirUlazneDatoteke_Click(object sender, EventArgs e)
@@ -127,6 +129,24 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             string dekriptiraniSadrzaj = RSA.Dekriptiraj(tekst);
             Datoteka.ZapisiUDatoteku(putanjaDatoteke, dekriptiraniSadrzaj);
             PostaviTekst(dekriptiraniSadrzaj);
+        }
+
+        private void btnDigitalnoPotpisivanje_Click(object sender, EventArgs e)
+        {
+            string putanjaDatoteke = "";
+            try
+            {
+                putanjaDatoteke = Datoteka.UcitajDatotekuDigitalnogPotpisivanje();
+            }
+            catch (Exception poruka)
+            {
+
+                MessageBox.Show(poruka.Message);
+            }
+            byte[] sadrzajDatoteke = Datoteka.UcitajOdredenuDatoteku(putanjaDatoteke);
+            byte[] sazetakDatoteke = RSA.IzracunajSazetakDatoteke(sadrzajDatoteke);
+            string putanjaSazetka = Datoteka.KreirajDatotekuSazetka();
+            Datoteka.ZapisiUDatoteku(putanjaSazetka, Convert.ToBase64String(sazetakDatoteke));
         }
     }
 }

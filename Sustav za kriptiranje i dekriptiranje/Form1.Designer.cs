@@ -45,6 +45,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnAsimetricnoKriptiranje = new System.Windows.Forms.Button();
             this.btnAsimetricnoDekriptiranje = new System.Windows.Forms.Button();
+            this.btnDigitalnoPotpisivanje = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -208,11 +209,23 @@
             this.btnAsimetricnoDekriptiranje.UseVisualStyleBackColor = true;
             this.btnAsimetricnoDekriptiranje.Click += new System.EventHandler(this.btnAsimetricnoDekriptiranje_Click);
             // 
+            // btnDigitalnoPotpisivanje
+            // 
+            this.btnDigitalnoPotpisivanje.Enabled = false;
+            this.btnDigitalnoPotpisivanje.Location = new System.Drawing.Point(17, 136);
+            this.btnDigitalnoPotpisivanje.Name = "btnDigitalnoPotpisivanje";
+            this.btnDigitalnoPotpisivanje.Size = new System.Drawing.Size(234, 29);
+            this.btnDigitalnoPotpisivanje.TabIndex = 12;
+            this.btnDigitalnoPotpisivanje.Text = "Digitalno potpisi datoteku";
+            this.btnDigitalnoPotpisivanje.UseVisualStyleBackColor = true;
+            this.btnDigitalnoPotpisivanje.Click += new System.EventHandler(this.btnDigitalnoPotpisivanje_Click);
+            // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 403);
+            this.Controls.Add(this.btnDigitalnoPotpisivanje);
             this.Controls.Add(this.btnAsimetricnoDekriptiranje);
             this.Controls.Add(this.btnAsimetricnoKriptiranje);
             this.Controls.Add(this.btnAesDekriptiranje);
@@ -258,6 +271,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAsimetricnoKriptiranje;
         private System.Windows.Forms.Button btnAsimetricnoDekriptiranje;
+        private System.Windows.Forms.Button btnDigitalnoPotpisivanje;
     }
 }
 

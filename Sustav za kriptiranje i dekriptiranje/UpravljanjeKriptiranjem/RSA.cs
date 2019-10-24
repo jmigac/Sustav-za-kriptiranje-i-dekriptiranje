@@ -59,5 +59,15 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
             byte[] dekriptiranTekst = rsaOperator.Decrypt(tekst, false);
             return Encoding.UTF8.GetString(dekriptiranTekst);
         }
+        public static byte[] IzracunajSazetakDatoteke(byte[] sadrzajDatoteke)
+        {
+            SHA256Managed sha = new SHA256Managed();
+            return sha.ComputeHash(sadrzajDatoteke,0,sadrzajDatoteke.Length);
+        }
+        public static byte[] DigitalnoPotpisi(byte[] sadrzajDatoteke)
+        {
+            byte[] izracunatSazetak = IzracunajSazetakDatoteke(sadrzajDatoteke);
+            return rsaOperator.SignHash(izracunatSazetak, CryptoConfig.MapNameToOID("SHA256"));
+        }
     }
 }

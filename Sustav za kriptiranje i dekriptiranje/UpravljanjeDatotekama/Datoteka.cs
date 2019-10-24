@@ -222,5 +222,42 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeDatotekama
             }
             return sadrzajDatoteke;
         }
+
+        public static string UcitajDatotekuDigitalnogPotpisivanje()
+        {
+            string radniDirektorij = DohvatiRadniDirektorij();
+            OpenFileDialog datoteka = new OpenFileDialog();
+            if(datoteka.ShowDialog() == DialogResult.OK)
+            {
+                if (datoteka.FileName.Length <= 0)
+                {
+                    throw new Exception("Niste odabrali datoteku za digitalni potpis!");
+                }
+                else
+                {
+                    return datoteka.FileName;
+                }
+            }
+            else
+            {
+                throw new Exception("Niste odbrali datoteku za digitalni potpis!");
+            }
+        }
+        public static string KreirajDatotekuSazetka()
+        {
+            string putanjaDatoteke = "";
+            string radniDirektorij = DohvatiRadniDirektorij();
+            putanjaDatoteke = radniDirektorij + @"/sazetak.txt";
+            if (File.Exists(putanjaDatoteke))
+            {
+                File.Delete(putanjaDatoteke);
+                File.Create(putanjaDatoteke);
+            }
+            else
+            {
+                File.Create(putanjaDatoteke);
+            }
+            return putanjaDatoteke;
+        }
     }
 }
