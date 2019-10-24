@@ -67,6 +67,7 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             this.btnIzracunajSazetak.Enabled = true;
             this.btnDigitalnoPotpisivanje.Enabled = true;
             this.btnGenerirajKljuceve.Enabled = false;
+            this.btnProvjeiDigitalniPotpis.Enabled = true;
         }
 
         private void btnOdabirUlazneDatoteke_Click(object sender, EventArgs e)
@@ -177,6 +178,28 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje
             string strSadrzajDigitalnogPotpisa = Convert.ToBase64String(sadrzajDigitalnogPotpisa);
             Datoteka.ZapisiUDatoteku(putanjaDatotekeDigitalnogPotpisa, strSadrzajDigitalnogPotpisa);
             txtUlazniPodatak.Text = strSadrzajDigitalnogPotpisa;
+        }
+
+        private void btnProvjeiDigitalniPotpis_Click(object sender, EventArgs e)
+        {
+            string putanjaOdabranaDatoteka = "";
+            OpenFileDialog odabranaDatoteka = new OpenFileDialog();
+            if(odabranaDatoteka.ShowDialog() == DialogResult.OK)
+            {
+                putanjaOdabranaDatoteka = odabranaDatoteka.FileName;
+            }
+            byte[] sadrzajDatoteke = Datoteka.UcitajOdredenuDatoteku(putanjaOdabranaDatoteka);
+            byte[] digitalniPotpisDatoteke = RSA.DigitalnoPotpisi(sadrzajDatoteke);
+            bool ispravnostDigitalnogPotpisa = false;
+            ispravnostDigitalnogPotpisa = RSA.ProvjeraValjanostiDigitalnogPotpisa(sadrzajDatoteke, digitalniPotpisDatoteke);
+            if (ispravnostDigitalnogPotpisa)
+            {
+                MessageBox.Show("Datoteka je valjana!");
+            }
+            else
+            {
+                MessageBox.Show("Datoteka nije valjana!");
+            }
         }
     }
 }

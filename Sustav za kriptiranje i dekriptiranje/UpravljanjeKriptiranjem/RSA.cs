@@ -69,5 +69,10 @@ namespace Sustav_za_kriptiranje_i_dekriptiranje.UpravljanjeKriptiranjem
             byte[] izracunatSazetak = IzracunajSazetakDatoteke(sadrzajDatoteke);
             return rsaOperator.SignHash(izracunatSazetak, CryptoConfig.MapNameToOID("SHA256"));
         }
+        public static bool ProvjeraValjanostiDigitalnogPotpisa(byte[] ucitanaDatoteka,byte[] digitalniPotpisDatoteke)
+        {
+            byte[] sazetakDatoteke = IzracunajSazetakDatoteke(ucitanaDatoteka);
+            return rsaOperator.VerifyHash(sazetakDatoteke, CryptoConfig.MapNameToOID("SHA256"), digitalniPotpisDatoteke);
+        }
     }
 }

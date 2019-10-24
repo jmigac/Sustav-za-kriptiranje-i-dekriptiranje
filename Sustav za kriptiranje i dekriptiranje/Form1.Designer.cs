@@ -47,6 +47,7 @@
             this.btnAsimetricnoDekriptiranje = new System.Windows.Forms.Button();
             this.btnIzracunajSazetak = new System.Windows.Forms.Button();
             this.btnDigitalnoPotpisivanje = new System.Windows.Forms.Button();
+            this.btnProvjeiDigitalniPotpis = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -232,11 +233,23 @@
             this.btnDigitalnoPotpisivanje.UseVisualStyleBackColor = true;
             this.btnDigitalnoPotpisivanje.Click += new System.EventHandler(this.btnDigitalnoPotpisivanje_Click);
             // 
+            // btnProvjeiDigitalniPotpis
+            // 
+            this.btnProvjeiDigitalniPotpis.Enabled = false;
+            this.btnProvjeiDigitalniPotpis.Location = new System.Drawing.Point(19, 205);
+            this.btnProvjeiDigitalniPotpis.Name = "btnProvjeiDigitalniPotpis";
+            this.btnProvjeiDigitalniPotpis.Size = new System.Drawing.Size(232, 28);
+            this.btnProvjeiDigitalniPotpis.TabIndex = 14;
+            this.btnProvjeiDigitalniPotpis.Text = "Provjeri digitalni potpis";
+            this.btnProvjeiDigitalniPotpis.UseVisualStyleBackColor = true;
+            this.btnProvjeiDigitalniPotpis.Click += new System.EventHandler(this.btnProvjeiDigitalniPotpis_Click);
+            // 
             // FrmStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(780, 403);
+            this.Controls.Add(this.btnProvjeiDigitalniPotpis);
             this.Controls.Add(this.btnDigitalnoPotpisivanje);
             this.Controls.Add(this.btnIzracunajSazetak);
             this.Controls.Add(this.btnAsimetricnoDekriptiranje);
@@ -286,6 +299,7 @@
         private System.Windows.Forms.Button btnAsimetricnoDekriptiranje;
         private System.Windows.Forms.Button btnIzracunajSazetak;
         private System.Windows.Forms.Button btnDigitalnoPotpisivanje;
+        private System.Windows.Forms.Button btnProvjeiDigitalniPotpis;
     }
 }
 
